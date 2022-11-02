@@ -36,7 +36,9 @@ const Header = () => {
   <div className="navbar-end">
     <BsHandbag className='mr-5 text-xl'></BsHandbag>
     <FaSearch className='mr-5 text-xl'></FaSearch>
-  <button className="bg-transparent hover:bg-red-600 text-red-700 font-semibold hover:text-white py-2 px-4 border border-red-600 hover:border-transparent rounded">Appointment</button>
+  <Link to='/login'>
+  <button className="bg-transparent hover:bg-red-600 text-red-700 font-semibold hover:text-white py-2 px-4 border border-red-600 hover:border-transparent rounded">Login</button>
+  </Link>
   </div>
 </div>
     );
