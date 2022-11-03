@@ -1,17 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import './Header.css'
 import logo from '../../../assets/logo.svg'
 import { FaSearch } from 'react-icons/fa';
 import { BsHandbag } from 'react-icons/bs';
+import { AuthContext } from '../../../AuthProvider/AuthProvider';
 const Header = () => {
-
+const {user} = useContext(AuthContext)
     const menuItems = <>
     <li className='font-semibold  text-2xl'><Link to='/'>Home</Link></li>
-    <li className='font-semibold  text-2xl'><Link to='/'>About</Link></li>
-    <li className='font-semibold  text-2xl'><Link to='/'>Service</Link></li>
-    <li className='font-semibold  text-2xl'><Link to='/'>Blog</Link></li>
-    <li className='font-semibold  text-2xl'><Link to='/'>Contact</Link></li>
+    {
+            user?.email ? 
+            <>
+            <li className='font-semibold'><Link to='/orders'>Orders</Link></li>
+            </>
+            :
+            <li className='font-semibold'><Link to='/login'>Login</Link></li>
+        }
     </>
     return (
         <div className="navbar bg-base-100 h-20 mb-8 ">
